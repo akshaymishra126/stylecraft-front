@@ -1,47 +1,8 @@
-import React, { createContext, useContext, useReducer, ReactNode, useEffect } from 'react';
+import React, { createContext, useContext, useReducer, useEffect } from 'react';
 
-export interface Product {
-  id: string;
-  name: string;
-  price: number;
-  image: string;
-  images: string[];
-  category: string;
-  description: string;
-  sizes: string[];
-  colors: string[];
-  featured?: boolean;
-}
+const CartContext = createContext(undefined);
 
-export interface CartItem extends Product {
-  quantity: number;
-  selectedSize: string;
-  selectedColor: string;
-}
-
-interface CartState {
-  items: CartItem[];
-  total: number;
-  itemCount: number;
-}
-
-interface CartContextType extends CartState {
-  addToCart: (product: Product, size: string, color: string, quantity?: number) => void;
-  removeFromCart: (productId: string, size: string, color: string) => void;
-  updateQuantity: (productId: string, size: string, color: string, quantity: number) => void;
-  clearCart: () => void;
-}
-
-type CartAction = 
-  | { type: 'ADD_TO_CART'; payload: { product: Product; size: string; color: string; quantity: number } }
-  | { type: 'REMOVE_FROM_CART'; payload: { productId: string; size: string; color: string } }
-  | { type: 'UPDATE_QUANTITY'; payload: { productId: string; size: string; color: string; quantity: number } }
-  | { type: 'CLEAR_CART' }
-  | { type: 'LOAD_CART'; payload: CartItem[] };
-
-const CartContext = createContext<CartContextType | undefined>(undefined);
-
-function cartReducer(state: CartState, action: CartAction): CartState {
+function cartReducer(state, action) {
   switch (action.type) {
     case 'ADD_TO_CART': {
       const { product, size, color, quantity } = action.payload;
@@ -115,7 +76,7 @@ function cartReducer(state: CartState, action: CartAction): CartState {
   }
 }
 
-export function CartProvider({ children }: { children: ReactNode }) {
+export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, {
     items: [],
     total: 0,
@@ -140,15 +101,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('cart', JSON.stringify(state.items));
   }, [state.items]);
 
-  const addToCart = (product: Product, size: string, color: string, quantity: number = 1) => {
+  const addToCart = (product, size, color, quantity = 1) => {
     dispatch({ type: 'ADD_TO_CART', payload: { product, size, color, quantity } });
   };
 
-  const removeFromCart = (productId: string, size: string, color: string) => {
+  const removeFromCart = (productId, size, color) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: { productId, size, color } });
   };
 
-  const updateQuantity = (productId: string, size: string, color: string, quantity: number) => {
+  const updateQuantity = (productId, size, color, quantity) => {
     dispatch({ type: 'UPDATE_QUANTITY', payload: { productId, size, color, quantity } });
   };
 

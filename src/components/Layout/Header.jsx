@@ -24,7 +24,7 @@ export function Header() {
     { name: 'Sale', href: '/sale' },
   ];
 
-  const isCurrentPath = (path: string) => location.pathname === path;
+  const isCurrentPath = (path) => location.pathname === path;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
@@ -32,7 +32,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <span className="text-2xl font-bold text-gradient">StyleHub</span>
+            <span className="text-2xl font-bold text-gradient hover-scale">Velora</span>
           </Link>
 
           {/* Desktop Navigation */}

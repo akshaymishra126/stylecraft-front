@@ -10,6 +10,8 @@ import { AuthProvider } from "@/context/AuthContext";
 // Pages
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import Categories from "./pages/Categories";
+import Sale from "./pages/Sale";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
@@ -36,6 +38,8 @@ const App = () => (
               {/* Main Routes (with Layout) */}
               <Route path="/" element={<Layout><Home /></Layout>} />
               <Route path="/products" element={<Layout><Products /></Layout>} />
+              <Route path="/categories" element={<Layout><Categories /></Layout>} />
+              <Route path="/sale" element={<Layout><Sale /></Layout>} />
               <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
               <Route path="/cart" element={<Layout><Cart /></Layout>} />
               <Route path="/checkout" element={<Layout><Checkout /></Layout>} />

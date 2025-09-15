@@ -1,11 +1,9 @@
-import { Product } from '@/context/CartContext';
-
 // Import generated images
 import tshirtImage from '@/assets/tshirt-white.jpg';
 import jeansImage from '@/assets/jeans-blue.jpg';
 import dressImage from '@/assets/dress-black.jpg';
 
-export const mockProducts: Product[] = [
+export const mockProducts = [
   {
     id: '1',
     name: 'Essential Cotton T-Shirt',
