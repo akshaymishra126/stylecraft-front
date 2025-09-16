@@ -20,7 +20,7 @@ export default function Login() {
 
   const from = location.state?.from?.pathname || '/';
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     const success = await login(email, password);

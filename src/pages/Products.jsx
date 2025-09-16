@@ -16,11 +16,11 @@ import { ProductCard } from '@/components/Product/ProductCard';
 
 export default function Products() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [viewMode, setViewMode] = useState('grid');
   const [showFilters, setShowFilters] = useState(false);
   const [sortBy, setSortBy] = useState('name');
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 200]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [priceRange, setPriceRange] = useState([0, 200]);
 
   // Initialize filters from URL params
   React.useEffect(() => {
@@ -65,7 +65,7 @@ export default function Products() {
     return filtered;
   }, [selectedCategories, priceRange, sortBy]);
 
-  const handleCategoryChange = (category: string, checked: boolean) => {
+  const handleCategoryChange = (category, checked) => {
     if (checked) {
       setSelectedCategories(prev => [...prev, category]);
     } else {
