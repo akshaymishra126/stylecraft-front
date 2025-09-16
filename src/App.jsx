@@ -22,37 +22,48 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <AuthProvider>
-        <CartProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              {/* Auth Routes (without Layout) */}
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              
-              {/* Main Routes (with Layout) */}
-              <Route path="/" element={<Layout><Home /></Layout>} />
-              <Route path="/products" element={<Layout><Products /></Layout>} />
-              <Route path="/categories" element={<Layout><Categories /></Layout>} />
-              <Route path="/sale" element={<Layout><Sale /></Layout>} />
-              <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
-              <Route path="/cart" element={<Layout><Cart /></Layout>} />
-              <Route path="/checkout" element={<Layout><Checkout /></Layout>} />
-              <Route path="/order-success" element={<Layout><OrderSuccess /></Layout>} />
-              
-              {/* Catch-all route */}
-              <Route path="*" element={<Layout><NotFound /></Layout>} />
-            </Routes>
-          </BrowserRouter>
-        </CartProvider>
-      </AuthProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+console.log("App.jsx loading...");
+
+const App = () => {
+  console.log("App component rendering...");
+  
+  try {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <AuthProvider>
+            <CartProvider>
+              <Toaster />
+              <Sonner />
+              <BrowserRouter>
+                <Routes>
+                  {/* Auth Routes (without Layout) */}
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/signup" element={<Signup />} />
+                  
+                  {/* Main Routes (with Layout) */}
+                  <Route path="/" element={<Layout><Home /></Layout>} />
+                  <Route path="/products" element={<Layout><Products /></Layout>} />
+                  <Route path="/categories" element={<Layout><Categories /></Layout>} />
+                  <Route path="/sale" element={<Layout><Sale /></Layout>} />
+                  <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
+                  <Route path="/cart" element={<Layout><Cart /></Layout>} />
+                  <Route path="/checkout" element={<Layout><Checkout /></Layout>} />
+                  <Route path="/order-success" element={<Layout><OrderSuccess /></Layout>} />
+                  
+                  {/* Catch-all route */}
+                  <Route path="*" element={<Layout><NotFound /></Layout>} />
+                </Routes>
+              </BrowserRouter>
+            </CartProvider>
+          </AuthProvider>
+        </TooltipProvider>
+      </QueryClientProvider>
+    );
+  } catch (error) {
+    console.error("Error in App component:", error);
+    return <div>Error loading application: {error.message}</div>;
+  }
+};
 
 export default App;
