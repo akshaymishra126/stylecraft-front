@@ -10,15 +10,15 @@
     --background: 0 0% 100%;
     --foreground: 0 0% 5%;
     
-    /* Brand Colors */
-    --primary: 0 0% 9%;
+    /* Futuristic Brand Colors */
+    --primary: 258 90% 66%;
     --primary-foreground: 0 0% 98%;
-    --primary-hover: 0 0% 15%;
+    --primary-hover: 258 90% 60%;
     
-    /* Elegant Accent */
-    --accent: 347 77% 50%;
+    /* Neon Accent */
+    --accent: 316 100% 65%;
     --accent-foreground: 0 0% 98%;
-    --accent-hover: 347 77% 45%;
+    --accent-hover: 316 100% 60%;
     
     /* Neutral Palette */
     --secondary: 0 0% 96%;
@@ -46,12 +46,14 @@
     /* Layout */
     --radius: 0.5rem;
     
-    /* Custom Design Tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(0 0% 9%) 0%, hsl(0 0% 20%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(347 77% 50%) 0%, hsl(347 77% 40%) 100%);
-    --shadow-elegant: 0 4px 20px -2px hsl(0 0% 0% / 0.1);
-    --shadow-card: 0 2px 10px -1px hsl(0 0% 0% / 0.08);
-    --shadow-hover: 0 8px 30px -4px hsl(0 0% 0% / 0.15);
+    /* Futuristic Design Tokens */
+    --gradient-hero: linear-gradient(135deg, hsl(258 90% 66%) 0%, hsl(316 100% 65%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(316 100% 65%) 0%, hsl(258 90% 66%) 100%);
+    --gradient-neon: linear-gradient(90deg, hsl(316 100% 65%) 0%, hsl(258 90% 66%) 50%, hsl(197 100% 65%) 100%);
+    --shadow-elegant: 0 4px 20px -2px hsl(258 90% 66% / 0.3);
+    --shadow-card: 0 2px 10px -1px hsl(316 100% 65% / 0.2);
+    --shadow-hover: 0 8px 30px -4px hsl(258 90% 66% / 0.4);
+    --shadow-neon: 0 0 20px hsl(316 100% 65% / 0.5);
     
     /* Typography */
     --font-heading: 'Inter', system-ui, sans-serif;
@@ -182,5 +184,34 @@
   /* Gradient Text */
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  /* Futuristic Animations */
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px hsl(var(--accent)), 0 0 10px hsl(var(--accent)), 0 0 15px hsl(var(--accent));
+    }
+    to {
+      text-shadow: 0 0 10px hsl(var(--accent)), 0 0 20px hsl(var(--accent)), 0 0 30px hsl(var(--accent));
+    }
+  }
+  
+  .animate-fade-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

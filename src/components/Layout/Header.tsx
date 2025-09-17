@@ -32,7 +32,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <span className="text-2xl font-bold text-gradient">StyleHub</span>
+            <span className="text-2xl font-bold bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent">VELORA</span>
           </Link>
 
           {/* Desktop Navigation */}

@@ -17,6 +17,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import OrderSuccess from "./pages/OrderSuccess";
 import NotFound from "./pages/NotFound";
+import Categories from "./pages/Categories";
+import Sale from "./pages/Sale";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +42,8 @@ const App = () => (
               <Route path="/cart" element={<Layout><Cart /></Layout>} />
               <Route path="/checkout" element={<Layout><Checkout /></Layout>} />
               <Route path="/order-success" element={<Layout><OrderSuccess /></Layout>} />
+              <Route path="/categories" element={<Layout><Categories /></Layout>} />
+              <Route path="/sale" element={<Layout><Sale /></Layout>} />
               
               {/* Catch-all route */}
               <Route path="*" element={<Layout><NotFound /></Layout>} />

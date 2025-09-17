@@ -40,10 +40,10 @@ export function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-4">
-              <span className="text-2xl font-bold text-gradient">StyleHub</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">VELORA</span>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
-              Discover timeless fashion that speaks to your unique style. Quality clothing for the modern individual.
+              Experience the future of fashion with VELORA. Premium clothing designed for the next generation of style.
             </p>
             
             {/* Contact Info */}
@@ -58,7 +58,7 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>hello@stylehub.com</span>
+                <span>hello@velora.com</span>
               </div>
             </div>
           </div>
@@ -109,7 +109,7 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-border mt-8 pt-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <p className="text-muted-foreground text-sm">
-            © 2024 StyleHub. All rights reserved.
+            © 2024 VELORA. All rights reserved.
           </p>
           
           {/* Social Media Links */}
