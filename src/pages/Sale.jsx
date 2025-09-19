@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ProductCard } from '@/components/Product/ProductCard';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { products } from '@/data/mockData';
+import { mockProducts } from '@/data/mockData';
 import { Clock, Flame, Tag } from 'lucide-react';
 
 export default function Sale() {
@@ -14,7 +14,7 @@ export default function Sale() {
   });
 
   // Create sale products with discounts
-  const saleProducts = products.map(product => ({
+  const saleProducts = mockProducts.map(product => ({
     ...product,
     originalPrice: product.price,
     price: Math.round(product.price * 0.7), // 30% off

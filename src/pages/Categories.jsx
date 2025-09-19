@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { categories, products } from '@/data/mockData';
+import { categories, mockProducts } from '@/data/mockData';
 import { ProductCard } from '@/components/Product/ProductCard';
 import { Button } from '@/components/ui/button';
 
@@ -8,8 +8,8 @@ export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const filteredProducts = selectedCategory === 'all' 
-    ? products 
-    : products.filter(product => product.category === selectedCategory);
+    ? mockProducts 
+    : mockProducts.filter(product => product.category === selectedCategory);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
